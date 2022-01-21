@@ -1,5 +1,7 @@
 # CSCI 592 Independent Study - Advanced Database Special Topics
 
+### Course Website: https://beqpolk1.github.io/csci-592-spring2022/
+
 ## Course Description
 
 The endless abundance of data in the modern world has uncovered the shortcomings of traditional relational databases. Sometimes the volume of data is too large for processing via a relational system to be workable, sometimes relational schemas are a poor fit for the structure of novel data sets, and sometimes both. As a result, database systems that depart from the relational paradigm have profilerated, and a single modern system can take advantage of multiple data storage paradigms to better fit the needs for particular parts of the application domain. However, coming up with an overall strategy to manage the data in these "polyglot persistence" systems can be daunting given the heterogeneous nature of the data and constituent systems involved. This independent study will spend time researching the problems that arise in a polyglot environment and tools and techniques that have been developed to fight these challenges. It will focus on "universal" models that have been or are being developed that allow multiple database paradigms, including relational, to work together in a more cohesive manner, and apply these ideas to solve problems in a real-world polyglot persistence system.
