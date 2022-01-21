@@ -1,37 +1,22 @@
-## Welcome to GitHub Pages
+## 
 
-You can use the [editor on GitHub](https://github.com/beqpolk1/csci-592-spring2022/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+This is the course website for my independent study at Montana State University during spring 2022.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+**Course Number**: CSCI 592-001
+**Instructor**: David Millman
 
-### Markdown
+### Course Description
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+This independent study will focus on polyglot persistence, i.e. the use of heterogeneous data storage paradigms and technologies to meet the data needs of an application. Specifically, the course will consider the difficulties that arise in a polyglot persistence environment and techniques for coping with these challenges. It will focus on "universal" models that have been or are being developed that allow multiple database paradigms, including relational, to work together in a more cohesive manner, and apply these ideas to solve problems in a real-world polyglot persistence system.
 
-```markdown
-Syntax highlighted code block
+### Site Content
 
-# Header 1
-## Header 2
-### Header 3
+I will post content to the site during each week of the course. For the first 12 weeks these will be writeups reflecting on a weekly reading. The posts for the remainder of the course will be updates on the status of a course project. The project proposal will also be posted to the course website.
 
-- Bulleted
-- List
+### Reading Writeups
 
-1. Numbered
-2. List
+* ...
+* ...
 
-**Bold** and _Italic_ and `Code` text
+### Project Updates
 
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/beqpolk1/csci-592-spring2022/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
