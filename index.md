@@ -1,8 +1,9 @@
-## 
+## Ben's Independent Study
 
-This is the course website for my independent study at Montana State University during spring 2022.
+This is the course website for my independent study at Montana State University during spring 2022, Special Topics in Advanced Database Systems.
 
 **Course Number**: CSCI 592-001
+
 **Instructor**: David Millman
 
 ### Course Description
