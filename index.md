@@ -19,5 +19,12 @@ I will post content to the site during each week of the course. For the first 12
 * [**0.1: Unified Data Modeling for Relational and NoSQL Databases - Allen Wang**](/article_writeups/0.1_wang_unified_data_modeling.md)
 * ...
 
-### Project Updates
+### Project Materials
+
+#### Proposal and Preliminary Material
+
+* [**Brainstorming Document**](/project/proposal/brainstorming.md)
+
+#### Updates
+
 * ...
