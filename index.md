@@ -17,7 +17,7 @@ I will post content to the site during each week of the course. For the first 12
 ### Reading Writeups
 
 * [**0.1: Unified Data Modeling for Relational and NoSQL Databases - Allen Wang**](/article_writeups/0.1_wang_unified_data_modeling.md)
-* [**1.1: DB-MAIN: A next generation meta-CASE - Vincent Englebert, Jean-Luc Hainaut**](/article_writeups/1.1_engelbert_hainaut_db-main.md)
+* [**1.1: DB-MAIN: A next generation meta-CASE - Vincent Englebert, Jean-Luc Hainaut**](/article_writeups/1.1_englebert_hainaut_db-main.md)
 
 ### Project Materials
 
