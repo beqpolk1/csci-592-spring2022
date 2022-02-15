@@ -14,3 +14,7 @@
 * Work on challenge from Bernstein et al.'s paper to find "best matches" between models
   * Find like fields between models and some probability of those fields being the same
   * *Learn* the best match between model schemas
+
+* Extend Atzeni et al.'s NoAM data model to graphs and column stores
+* Prove isomorphisms between datastores using the NoAM data model
+* Explore the mathematical representation and implications of the NoAM model and the design guidelines given by Atzeni et al.
