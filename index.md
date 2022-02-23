@@ -19,8 +19,8 @@ I will post content to the site during each week of the course. For the first 12
 * [**0.1: Unified Data Modeling for Relational and NoSQL Databases - Allen Wang**](/article_writeups/0.1_wang_unified_data_modeling.md)
 * [**1.1: DB-MAIN: A next generation meta-CASE - Vincent Englebert, Jean-Luc Hainaut**](/article_writeups/1.1_englebert_hainaut_db-main.md)
 * [**1.2: A Vision for Management of Complex Models - Philip A. Bernstein, Alon Y. Halevy, Rachel A. Pottinger**](/article_writeups/1.2_bernstein_halevy_pottinger_complex_models.md)
-* [**1.3: Data Modeling in the NoSQL World - Paolo Atzeni, Francesa Bugiotti, Luca Cabibbo, Riccardo Torlone**](/article_writeups/1.3_atzeni_et_al_data_model_nosql.md)
-* [**1.4: Inferring Versioned Schemas from NoSQL Databases and Its Applications - Diego Sevilla Ruiz, Severino Feliciano Morales, Jesus Garcia Molina**](/article_writeups/1.4_ruiz_morales_molina_versioned_schemas.md)
+* [**2.1: Data Modeling in the NoSQL World - Paolo Atzeni, Francesa Bugiotti, Luca Cabibbo, Riccardo Torlone**](/article_writeups/2.1_atzeni_et_al_data_model_nosql.md)
+* [**2.2: Inferring Versioned Schemas from NoSQL Databases and Its Applications - Diego Sevilla Ruiz, Severino Feliciano Morales, Jesus Garcia Molina**](/article_writeups/2.2_ruiz_morales_molina_versioned_schemas.md)
 
 ### Project Materials
 
