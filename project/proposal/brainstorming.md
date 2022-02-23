@@ -18,3 +18,7 @@
 * Extend Atzeni et al.'s NoAM data model to graphs and column stores
 * Prove isomorphisms between datastores using the NoAM data model
 * Explore the mathematical representation and implications of the NoAM model and the design guidelines given by Atzeni et al.
+
+* Extend Ruiz et al.'s NoSQL schema inference to graphs and possibly streaming paradigms?
+* Apply data mining similarity detection techniques to aid with inferring NoSQL schemas
+* Integrate a data transformation tool into an application, based on the NoSQL schema and techniques from Ruiz et al.
