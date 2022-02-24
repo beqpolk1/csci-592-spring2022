@@ -25,7 +25,8 @@
 
 ---
 
-### From the discussion of [Inferring Versioned Schemas from NoSQL Databases and Its Applications](../../article_writeups/2.2_ruiz_morales_molina_versioned_schemas.md)
+#### From the discussion of [Inferring Versioned Schemas from NoSQL Databases and Its Applications](../../article_writeups/2.2_ruiz_morales_molina_versioned_schemas.md)
+
 * Give two collections in Mongo, of the same entity, do I end up with any versions that are the same?
 * If you find versions that are the same across diff. databases or collections, you start to build confidence that they're talking about the same thing
   * Quantifiable in terms of how much version overlap there is?
