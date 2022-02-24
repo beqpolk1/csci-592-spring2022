@@ -22,3 +22,19 @@
 * Extend Ruiz et al.'s NoSQL schema inference to graphs and possibly streaming paradigms?
 * Apply data mining similarity detection techniques to aid with inferring NoSQL schemas
 * Integrate a data transformation tool into an application, based on the NoSQL schema and techniques from Ruiz et al.
+
+---
+
+### From the discussion of [Inferring Versioned Schemas from NoSQL Databases and Its Applications](../../article_writeups/2.2_ruiz_morales_molina_versioned_schemas.md)
+* Give two collections in Mongo, of the same entity, do I end up with any versions that are the same?
+* If you find versions that are the same across diff. databases or collections, you start to build confidence that they're talking about the same thing
+  * Quantifiable in terms of how much version overlap there is?
+  * Detect same objects in different places
+* Could you start to give some tooling to let users pick up which things are linked together across databases or collections?
+
+* Names are largely irrelevant for unstructured data...
+* Is there a way to do a similarity measure between structures of JSON/BSON documents?
+* In relational terms, you can represent schemas as vectors (?) and then compute vector distance between two schemas
+  * How to extend or do this within JSON schema language *(what is the name of this?)*
+* There might be a path that yields better similarity - distance between trees?
+* Look at how different papers come up with metamodels 
