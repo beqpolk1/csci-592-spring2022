@@ -23,6 +23,11 @@
 * Apply data mining similarity detection techniques to aid with inferring NoSQL schemas
 * Integrate a data transformation tool into an application, based on the NoSQL schema and techniques from Ruiz et al.
 
+* Take the universal metamodel from Atzeni et al.'s paper (A Universal Metamodel and Its Dictionary) and apply it to NoSQL datastores
+  * Document store, column store, graph
+  * See if proposed meta-constructs can adequately capture these systems - is it necessary to extend with more meta-constructs?
+  * Fill in dictionary metadata for sample application
+
 ---
 
 #### From the discussion of [Inferring Versioned Schemas from NoSQL Databases and Its Applications](../../article_writeups/2.2_ruiz_morales_molina_versioned_schemas.md)
