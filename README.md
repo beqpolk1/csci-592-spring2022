@@ -35,13 +35,13 @@ As a result of participating in this independent study, the student will be able
 
 #### Part 3 - Solutions (unified models + examples)
 
-**3.1:** Uniform Access to Non-relational Database Systems: The SOS Platform - Paolo Atzeni, Francesca Bugiotti, Luca Rossi (https://link-springer-com.proxybz.lib.montana.edu/chapter/10.1007%2F978-3-642-31095-9_11)
+**3.1:** Multi-model Database Management Systems - A Look Forwrad - Zhen Hua Liu, Jiaheng Lu, Dieter Gawlick, Heli Helskyaho, Gregory Pogossiants, Zhe Wu (https://link.springer.com/chapter/10.1007%2F978-3-030-14177-6_2)
 
-**3.2:** Multi-model Database Management Systems - A Look Forwrad - Zhen Hua Liu, Jiaheng Lu, Dieter Gawlick, Heli Helskyaho, Gregory Pogossiants, Zhe Wu (https://link.springer.com/chapter/10.1007%2F978-3-030-14177-6_2)
+**3.2:** A unified metamodel for NoSQL and relational databases - Carlos J. Fernández Candel, Diego Sevilla Ruiz, Jesús J. García-Molina (https://www-sciencedirect-com.proxybz.lib.montana.edu/science/article/pii/S0306437921001149)
 
-**3.3:** A unified metamodel for NoSQL and relational databases - Carlos J. Fernández Candel, Diego Sevilla Ruiz, Jesús J. García-Molina (https://www-sciencedirect-com.proxybz.lib.montana.edu/science/article/pii/S0306437921001149)
+**TBD:** Uniform Access to Non-relational Database Systems: The SOS Platform - Paolo Atzeni, Francesca Bugiotti, Luca Rossi (https://link-springer-com.proxybz.lib.montana.edu/chapter/10.1007%2F978-3-642-31095-9_11)
 
-**3.4:** Uniform data access platform for SQL and NoSQL database systems - Ágnes Vathy-Fogarassy, Tamás Hugyák (https://www-sciencedirect-com.proxybz.lib.montana.edu/science/article/pii/S0306437916303398)
+**TBD:** Uniform data access platform for SQL and NoSQL database systems - Ágnes Vathy-Fogarassy, Tamás Hugyák (https://www-sciencedirect-com.proxybz.lib.montana.edu/science/article/pii/S0306437916303398)
 
 #### Potential Other Resources
 
@@ -78,18 +78,18 @@ As a result of participating in this independent study, the student will be able
 
 | Week | Ending In | Notes | Assignment Due/Reading to Cover |
 |------|-----------|-------|---------------------------------|
-| 1 | 1/21 | Semester starts 1/19 | 0.1 |
-| 2 | 1/28 | | 1.1 |
-| 3 | 2/4 | | 1.2 |
-| 4 | 2/11 | | 2.1 |
-| 5 | 2/18 | | 2.2 |
-| 6 | 2/25 | No class 2/21 | 2.3 |
-| 7 | 3/4 | | 3.1 |
-| 8 | 3/11 | | 3.2 |
+| 1 | 1/21 | Semester starts 1/19 | |
+| 2 | 1/28 | | 0.1 |
+| 3 | 2/4 | | 1.1 |
+| 4 | 2/11 | | 1.2 |
+| 5 | 2/18 | | 2.1 |
+| 6 | 2/25 | No class 2/21 | 2.2 |
+| 7 | 3/4 | | 2.3 |
+| 8 | 3/11 | | 3.1 |
 | 9 | 3/18 | Week of spring break - no class | |
-| 10 | 3/25 | | 3.3; proj. proposal |
-| 11 | 4/1 | | proj. check-in |
-| 12 | 4/8 | | 3.4; proj. check-in |
+| 10 | 3/25 | | 3.2 |
+| 11 | 4/1 | | proj. proposal |
+| 12 | 4/8 | | 3.3; proj. check-in |
 | 13 | 4/15 | No class 4/15 | proj. check-in |
 | 14 | 4/22 | | proj. check-in |
 | 15 | 4/29 | | proj. check-in |
