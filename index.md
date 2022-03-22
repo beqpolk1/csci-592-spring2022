@@ -23,6 +23,7 @@ I will post content to the site during each week of the course. For the first 12
 * [**2.2: Inferring Versioned Schemas from NoSQL Databases and Its Applications - Diego Sevilla Ruiz, Severino Feliciano Morales, Jesus Garcia Molina**](/article_writeups/2.2_ruiz_morales_molina_versioned_schemas.md)
 * [**2.3: A Universal Metamodel and Its Dictionary - Paolo Atzeni, Giorgio Gianforme, Paolo Cappellari**](/article_writeups/2.3_atzeni_gianforme_cappellari_universal_metamodel.md)
 * [**3.1: Multi-model Database Management Systems - A Look Forward - Zhen Hua Liu, Jiaheng Lu, Dieter Gawlick, Heli Helskyaho, Gregory Pogossiants, Zhe Wu**](/article_writeups/3.1_liu_et_al_multi_model_dbms.md)
+* [**3.2: A unified metamodel for NoSQL and relational databases**](/article_writeups/3.2_candel_ruiz_molina_unified_metamodel.md)
 
 ### Project Materials
 

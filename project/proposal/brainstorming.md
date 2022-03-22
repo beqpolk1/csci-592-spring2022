@@ -28,6 +28,9 @@
   * See if proposed meta-constructs can adequately capture these systems - is it necessary to extend with more meta-constructs?
   * Fill in dictionary metadata for sample application
 
+* Explore how to store data in a "U-schema" state and provide efficient access or context-sensitive processing and usage
+* Apply some learning techniques to improve on the forward/reverse mappings presented in the Candel "U-schema" paper
+
 ---
 
 #### From the discussion of [Inferring Versioned Schemas from NoSQL Databases and Its Applications](../../article_writeups/2.2_ruiz_morales_molina_versioned_schemas.md)
