@@ -33,6 +33,14 @@
 
 ---
 
+### Short List
+
+* Build a system around a native implementation of "U-schema", as opposed to knitting together existing systems. Consider physical storage techniques and methods, query methods, mapping data between paradigms, detecting proper data paradigm for context.
+* Extend the functionality of "U-schema" using machine learning or data mining techniques to improve the performance of forward and reverse mapping operations, specifically for those elements of U-schema that are not present in every data paradigm.
+* Use a universal metamodel to detect and infer similarities between entities represented under different paradigms in different systems and predict which entities may correspond with each other across paradigms.
+
+---
+
 #### From the discussion of [Inferring Versioned Schemas from NoSQL Databases and Its Applications](../../article_writeups/2.2_ruiz_morales_molina_versioned_schemas.md)
 
 * Give two collections in Mongo, of the same entity, do I end up with any versions that are the same?
