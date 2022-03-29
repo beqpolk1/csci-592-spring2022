@@ -30,6 +30,7 @@ I will post content to the site during each week of the course. For the first 12
 #### Proposal and Preliminary Material
 
 * [**Brainstorming Document**](/project/proposal/brainstorming.md)
+* [**Proposal sketches**](/project/proposal/proposals_rough.md)
 
 #### Updates
 
