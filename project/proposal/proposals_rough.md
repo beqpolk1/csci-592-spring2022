@@ -14,6 +14,7 @@
     * Data could still be spread out among multiple databases (e.g. in both document store and key-value store)
   * What if data is stored across multiple databases (e.g. combining user cart data in a document store with user address data in relational tables)?
     * *Side question - is there actually a scenario where this could be more efficient or desirable?*
+	* **Microservice architectures**
   * What if some databases store the same information, but it's faster to get it out of one than the other (e.g. aggregated order object from document store vs. tableized order info from relational store)?
   * How to identify and limit query to only specific structural variations?
   
@@ -25,10 +26,20 @@
   * OLAP-style queries are likely more efficient under a relational model.
 * How to incorporate indexing to speed up query processing?
   * Where do these indices live?
-  * What types of indices would be useful (hashes, B-trees)?
+  * What types of indices would be useful (hashes, B-trees, inverted index)?
   * Can we apply indices to some U-Schema model that helps to answer the types of questions above in combination with the dictionary?
 
-#### Existing research
+* Need to find some example datasets?
+  * Examine existing "U-Schema" project repo for clues on data generation? Email paper authors? 
+
+#### Potential resources
+
+* https://www.proquest.com/docview/2515175023/B54187C3DA8C4A24PQ/13?accountid=28148
+* https://www.proquest.com/docview/2397274270
+* https://dzone.com/articles/approaches-to-query-optimization-in-nosql-1
+* https://dzone.com/articles/a-deep-dive-into-couchbase-n1ql-query-optimization
+* https://web.stanford.edu/class/cs345d-01/rl/chaudhuri98.pdf
+* https://ravendb.net/docs/article-page/5.3/csharp/studio/database/indexes/indexes-overview#indexes-overview
 
 
 
