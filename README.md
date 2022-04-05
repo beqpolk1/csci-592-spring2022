@@ -11,7 +11,7 @@ The endless abundance of data in the modern world has uncovered the shortcomings
 As a result of participating in this independent study, the student will be able to:
 * Analyze a polyglot persistence system and identify the strengths of the polyglot approach, as well as data management problems arising from the use of heterogeneous data stores.
 * Evaluate several techniques for alleviating data management problems in polyglot persistence systems and determine techniques that are suitable for a given application.
-* Implement a new solution in a real-world polyglot system that paplies some of the studied techniques to mitigate difficulties posed by the use of heterogeneous data.
+* Implement a new solution in a real-world polyglot system that applies some of the studied techniques to mitigate difficulties posed by the use of heterogeneous data.
 
 ## Readings and Course Materials
 
@@ -39,9 +39,9 @@ As a result of participating in this independent study, the student will be able
 
 **3.2:** A unified metamodel for NoSQL and relational databases - Carlos J. Fernández Candel, Diego Sevilla Ruiz, Jesús J. García-Molina (https://www-sciencedirect-com.proxybz.lib.montana.edu/science/article/pii/S0306437921001149)
 
-**TBD:** Uniform Access to Non-relational Database Systems: The SOS Platform - Paolo Atzeni, Francesca Bugiotti, Luca Rossi (https://link-springer-com.proxybz.lib.montana.edu/chapter/10.1007%2F978-3-642-31095-9_11)
+*Reviewed for project proposal* Uniform Access to Non-relational Database Systems: The SOS Platform - Paolo Atzeni, Francesca Bugiotti, Luca Rossi (https://link-springer-com.proxybz.lib.montana.edu/chapter/10.1007%2F978-3-642-31095-9_11)
 
-**TBD:** Uniform data access platform for SQL and NoSQL database systems - Ágnes Vathy-Fogarassy, Tamás Hugyák (https://www-sciencedirect-com.proxybz.lib.montana.edu/science/article/pii/S0306437916303398)
+*Reviewed for project proposal* Uniform data access platform for SQL and NoSQL database systems - Ágnes Vathy-Fogarassy, Tamás Hugyák (https://www-sciencedirect-com.proxybz.lib.montana.edu/science/article/pii/S0306437916303398)
 
 #### Potential Other Resources
 
@@ -88,9 +88,9 @@ As a result of participating in this independent study, the student will be able
 | 8 | 3/11 | | 3.1 |
 | 9 | 3/18 | Week of spring break - no class | |
 | 10 | 3/25 | | 3.2 |
-| 11 | 4/1 | | proj. proposal |
-| 12 | 4/8 | | 3.3; proj. check-in |
-| 13 | 4/15 | No class 4/15 | proj. check-in |
+| 11 | 4/1 | | proposal draft and discussion |
+| 12 | 4/8 | | proj. proposal |
+| 13 | 4/15 | No class 4/15 | proj. check-in - testing environment |
 | 14 | 4/22 | | proj. check-in |
 | 15 | 4/29 | | proj. check-in |
 | 16 | 5/6 | Dead week | proj. check-in |
