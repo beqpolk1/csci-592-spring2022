@@ -32,6 +32,8 @@ I will post content to the site during each week of the course. For the first 12
 * [**Brainstorming Document**](/project/proposal/brainstorming.md)
 * [**Proposal sketches**](/project/proposal/proposals_rough.md)
 
+#### [Project Proposal Document](/project/proposal/polk_csci-592_project_proposal.pdf)
+
 #### Updates
 
 * ...
