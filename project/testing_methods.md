@@ -1,3 +1,5 @@
+[(home)](https://beqpolk1.github.io/csci-592-spring2022/)
+
 ### Query optimization by semantic reasoning:
 https://www.proquest.com/docview/303207778?pq-origsite=gscholar&fromopenview=true
 * Structure example database "to illustrate the special capabilities..." of the project
@@ -53,6 +55,46 @@ https://dl.acm.org/doi/abs/10.1145/509252.509273?casa_token=sNKKNe0G9OcAAAAA:mR6
 https://dl.acm.org/doi/abs/10.1145/356924.356928
 * Very good review that covers a lot of query optimization research
 * Some of above articles taken from references of this paper
-* Some other relevant-sounding articles not available with MSU Library
+* Some other relevant-sounding articles not available with MSU Library access
 
-### Should review test data setups for some of previously read papers
+### Uniform Access to Non-relational Database Systems: The SOS Platform
+https://link-springer-com.proxybz.lib.montana.edu/chapter/10.1007%2F978-3-642-31095-9_11
+* Came up with an example application that would use multiple databases to exercise their platform
+  * "...adopt the perspective of a Web 2.0 development team that wants to benefit from the use of different NoSQL systems."
+  * Authors mock up a simplified version of Twitter for example purposes
+* Don't use a predefined dataset or perform any experiments, but use example app/schema to demonstrate platform functionality
+
+### Uniform data access platform for SQL and NoSQL database systems
+https://www-sciencedirect-com.proxybz.lib.montana.edu/science/article/pii/S0306437916303398
+* Authors demonstrate their platform with a test dataset and experiments
+  * However, no references are made to **where** this test data came from or how it was loaded/structured into relational vs. NoSQL stores
+  * Authors describe the schema of the test data and how it suits demonstrating their platform (webshop database)
+* Run tests with predefined queries on datasets of varying sizes
+  * All datasets are relatively large (100,000 to 1.4 million entities)
+  * Queries gradually add more selected columns which use more objects, and some have filter conditions
+* Relevant point may be how they measure performance
+  * Use time metrics based on measurements from the test machine
+  * Differentiate between:
+    * Entire running time: "Time measurement began when the user sent the request to [the system], and the measurement ended when the queried data was available in [the system] in JSON format."
+	* Data retrieval time: "...began when the user request was sent from [the system] to the data source and ended when the queried data was available in [the system] in JSON format."
+	* Native query time: "...the running time of native database queries."
+  * For my tests, it will be relevant to track and analyze native query times separately from data retrieval times
+  
+### A unified metamodel for NoSQL and relational databases
+https://www-sciencedirect-com.proxybz.lib.montana.edu/science/article/pii/S0306437921001149
+* Testing is oriented around a few specific goals:
+  1. Make sure a correct U-Schema is inferred from data
+  2. Make sure that all entity type variations in the extracted U-Schema are represented in the database (U-Schema didn't "make something up")
+  3. Make sure that the the number of the objects in the database matches the sum of objects that belong to each entity type variation in the extracted U-Schema (there are no "unaccounted" objects in the database)
+  4. Testing scalability of schema-inference process
+* Authors generated synthetic test data: IS THIS AVAILABLE??
+  * Defined a sample U-Schema with desired structure (User profile with watched movies)
+  * Randomly created elements in the target databse according to the defined model
+  * Generated four test datasets of various sizes
+  * Useful for testing points 1-4 above
+* For each data paradigm, authors also used a non-synthetic dataset
+  * MongoDB, Redis, and HBase - the [every politician dataset](https://everypolitician.org/)
+  * Neo4j - the Movies dataset available on the Neo4j website (now normally only "built in", but the [author's repository](https://github.com/catedrasaes-umu/NoSQLDataEngineering/) has a copy)
+  * MySQL - the [Sakila database](https://dev.mysql.com/doc/index-other.html)
+  * These were useful for testing points 2-4 above
+* These datasets may prove to be useful testing material; the types of tests and methods used by the authors are likely not applicable to my project, however
