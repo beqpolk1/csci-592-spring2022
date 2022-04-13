@@ -1,5 +1,53 @@
 [(home)](https://beqpolk1.github.io/csci-592-spring2022/)
 
+## Test Plan
+
+### Goals
+
+**Part 1:**
+
+* Answer three types of question:
+  1. When the same data is present in multiple databases, which one should I access it from?
+  2. When data for the same U-Schema entity is spread out between multiple databases, how do I tell where to search to satisfy a query for that entity?
+  3. How do I join different data from different databases together?
+* Which will require:
+  * Having data for the same entity represented in at least two different databases (1), which will require transforming one schema into another
+  * Having data for the same *entity type* but for different *specific entities* in at least two different databases (2)
+  * Having data that is for different entity types and semantically related in at least two different databases (3)
+* These questions will be subject to **correctness tests**: does query processing return a correct result
+  * Could be determined through item counts
+* Goal:
+  * Have data stored in 3 different database systems: graph, relational, and document
+  * Define and process at least one specific query for each question above and test for correctness; two queries per question would be better
+
+**Part 2:**
+
+* Evaluating queries in an efficient manner
+  * What type of queries?
+    * Similar to queries considered for the above questions
+    * The U-Schema paper focuses mostly on "select" style statements, so analyzing OLAP style data use
+  * This will require a cost measurement: previous literature would support time, cardinality, secondary storage accesses
+    * Time (wall clock): not generalizeable, but would allow separating cost of "native queries" from cost of processing at the meta-level
+    * Cardinality: could be a good measurement, as processing fewer data items will generally lead to better performance
+    * Secondary storage accesses: very difficult to measure since the system being constructed is not the one reading from disk, individual DB's do that step
+    * System memory: not much of a history of this, but since this system will involve handling large amounts of data in memory it could be relevant
+* Which will require:
+  * Defining a cost estimation mechanism
+  * Defining at least two different execution plans for the same query such that the same result is obtained, but intermediary steps are different
+    * Will need to define different processing mechanisms such that different execution plans can be generated (e.g. nested loop join vs. block join)
+    * Could define an indexing data structure, and have one plan disregard it while another plan uses it
+  * Estimating the costs for each execution plan
+  * Observing true cost for each execution plan and verifying that each returns the correct results
+* These questions will be subject to **quantitative tests**
+  * Do the cost estimates align with true costs
+  * Did the supposed optimization methods yield lower true costs
+* Goal:
+  * Have at least two different queries to analyze; these could overlap with those used for part 1; more queries would be better
+  * Have at least two different execution plans for each query; more execution plans could be useful
+  * Have at least two different size datasets to test against
+
+## Research
+
 ### Query optimization by semantic reasoning:
 https://www.proquest.com/docview/303207778?pq-origsite=gscholar&fromopenview=true
 * Structure example database "to illustrate the special capabilities..." of the project
@@ -87,11 +135,13 @@ https://www-sciencedirect-com.proxybz.lib.montana.edu/science/article/pii/S03064
   2. Make sure that all entity type variations in the extracted U-Schema are represented in the database (U-Schema didn't "make something up")
   3. Make sure that the the number of the objects in the database matches the sum of objects that belong to each entity type variation in the extracted U-Schema (there are no "unaccounted" objects in the database)
   4. Testing scalability of schema-inference process
-* Authors generated synthetic test data: IS THIS AVAILABLE??
+* Authors generated synthetic test data:
   * Defined a sample U-Schema with desired structure (User profile with watched movies)
   * Randomly created elements in the target databse according to the defined model
   * Generated four test datasets of various sizes
   * Useful for testing points 1-4 above
+  * A closer reading indicates that the authors **did not** use the synthetic dataset for testing on the relational model
+  * The tool does still seem to be available, but only for generating synthetic data for NoSQL databases
 * For each data paradigm, authors also used a non-synthetic dataset
   * MongoDB, Redis, and HBase - the [every politician dataset](https://everypolitician.org/)
   * Neo4j - the Movies dataset available on the Neo4j website (now normally only "built in", but the [author's repository](https://github.com/catedrasaes-umu/NoSQLDataEngineering/) has a copy)
