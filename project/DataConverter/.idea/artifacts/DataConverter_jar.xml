@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="DataConverter:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/DataConverter_jar</output-path>
+    <root id="archive" name="DataConverter.jar">
+      <element id="module-output" name="DataConverter" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/mongodb/mongo-java-driver/3.5.0/mongo-java-driver-3.5.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
