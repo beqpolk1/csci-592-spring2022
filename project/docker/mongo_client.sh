@@ -1,0 +1,1 @@
+docker run --net=host -it adv-db/clients mongo mongoSongs

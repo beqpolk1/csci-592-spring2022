@@ -1,0 +1,1 @@
+docker run -it -v /mnt/c/Users/Ben/Repositories/NoSQLDataEngineering:/mnt csci-592/env java -cp nosql.s13e.db.gen.jar es.um.nosql.s13e.db.gen.Main
