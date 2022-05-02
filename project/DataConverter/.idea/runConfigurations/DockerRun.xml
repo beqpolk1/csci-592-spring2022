@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="DockerRun" type="docker-deploy" factoryName="dockerfile" server-name="Docker Desktop">
+    <deployment type="dockerfile">
+      <settings>
+        <option name="containerName" value="DockerDataConverter" />
+        <option name="contextFolderPath" value="out/artifacts/DataConverter_jar" />
+        <option name="sourceFilePath" value="src/Dockerfile" />
+      </settings>
+    </deployment>
+    <method v="2">
+      <option name="BuildArtifacts" enabled="true">
+        <artifact name="DataConverter:jar" />
+      </option>
+    </method>
+  </configuration>
+</component>
