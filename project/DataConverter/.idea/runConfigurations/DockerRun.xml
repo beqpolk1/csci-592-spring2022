@@ -1,9 +1,14 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="DockerRun" type="docker-deploy" factoryName="dockerfile" server-name="Docker Desktop">
+  <configuration default="false" name="DockerRun" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
     <deployment type="dockerfile">
       <settings>
-        <option name="containerName" value="DockerDataConverter" />
+        <option name="imageTag" value="" />
+        <option name="buildCliOptions" value="" />
+        <option name="command" value="" />
+        <option name="containerName" value="DockerDataConvert" />
         <option name="contextFolderPath" value="out/artifacts/DataConverter_jar" />
+        <option name="entrypoint" value="" />
+        <option name="commandLineOptions" value="" />
         <option name="sourceFilePath" value="src/Dockerfile" />
       </settings>
     </deployment>
