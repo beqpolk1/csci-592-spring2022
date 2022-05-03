@@ -39,3 +39,4 @@ I will post content to the site during each week of the course. For the first 12
 #### **Updates**
 
 * [Steps for using NoSQL data generation tool from the ModelUM Group's NoSQL Data Engineering repository](/project/updates/data_generation_steps.md)
+* [Description of changes made to MongoSongs model from the ModuelUM Group's NoSQL Data Engineering repository](/project/updates/changes_to_model.md)
