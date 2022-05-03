@@ -1,1 +1,1 @@
-docker run --net=host -it adv-db/clients mongo mongoSongs
+docker run -it csci-592/clients mongo host.docker.internal/mongoSongs

@@ -1,0 +1,1 @@
+docker run -it -v $(pwd)/..:/mnt/ csci-592/clients psql -h host.docker.internal -U postgres postgres
