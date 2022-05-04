@@ -1,3 +1,5 @@
+[(home)](https://beqpolk1.github.io/csci-592-spring2022/)
+
 ## Steps ro Run Data Generator
 
 1. Clone [NoSQL Data Engineering repo](https://github.com/catedrasaes-umu/NoSQLDataEngineering)

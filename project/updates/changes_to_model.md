@@ -1,3 +1,7 @@
+[(home)](https://beqpolk1.github.io/csci-592-spring2022/)
+
+## Changes made to MongoSongs NoSQL model
+
 * Track
     * Structural Variation 1
         * Attribute genres: change to PTuple of String
