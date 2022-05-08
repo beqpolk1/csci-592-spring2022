@@ -4,6 +4,7 @@
     <root id="archive" name="DataConverter.jar">
       <element id="module-output" name="DataConverter" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/mongodb/mongo-java-driver/3.5.0/mongo-java-driver-3.5.0.jar" path-in-jar="/" />
+      <element id="library" level="project" name="postgresql-42.3.5" />
     </root>
   </artifact>
 </component>
