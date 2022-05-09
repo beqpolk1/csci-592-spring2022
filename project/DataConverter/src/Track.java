@@ -71,4 +71,21 @@ public class Track {
             }
         }
     }
+
+    public String getCypherInsert() {
+        String genreString = "[";
+        int idx = 0;
+        for (String curGenre : genres) {
+            if (idx > 0) genreString += ", ";
+            genreString += "\"" + curGenre + "\"";
+            idx++;
+        }
+        genreString += "]";
+
+        String result = "CREATE (tr" + this.id + ":track {id: \"" + this.id + "\", length: " + this.length + ", name: \"" + this.name + "\", popularity: " + this.popularity + ", genres: " + genreString + "})";
+        if (ratingScore != null) {
+            result += "-[:aggr_ratings]->(rtg:rating {score: " + this.ratingScore + ", voters: " + this.ratingVoters + "})";
+        }
+        return result;
+    }
 }

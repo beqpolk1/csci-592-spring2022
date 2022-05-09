@@ -9,5 +9,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="mongodb.mongo.java.driver" level="project" />
     <orderEntry type="library" name="postgresql-42.3.5" level="project" />
+    <orderEntry type="library" name="org.neo4j.driver:neo4j-java-driver:4.4.4" level="project" />
   </component>
 </module>

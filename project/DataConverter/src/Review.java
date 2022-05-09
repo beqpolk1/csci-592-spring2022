@@ -51,4 +51,14 @@ public class Review {
             theInsert.setNull(7, Types.NULL);
         }
     }
+
+    public String getCypherDef() {
+        String cypherDef = "(rvw:review {journalist: \"" + this.journalist + "\", rank: \"" + this.rank + "\", stars: " + this.stars + "})";
+
+        if (mediumName != null) {
+            cypherDef += "-[:aggr_media]->(md:media {mediumName: \"" + this.mediumName + "\", mediumType: \"" + this.mediumType + "\", mediumUrl: \"" + mediumUrl + "\"})";
+        }
+
+        return cypherDef;
+    }
 }

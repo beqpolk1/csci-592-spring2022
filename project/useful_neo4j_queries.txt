@@ -1,0 +1,10 @@
+match(n) return n
+
+MATCH (n)
+OPTIONAL MATCH (n)-[r]-()
+DELETE n, r
+
+match(n:track) OPTIONAL MATCH (n)-[r]-(o) return n,o;
+
+match(ab:album) OPTIONAL MATCH (ab)-[r:aggr_reviews]-(rvw:review) return ab,r,rvw;
+MATCH(ab:album)-[r:aggr_reviews]-(rvw:review) OPTIONAL MATCH (rvw)-[m:aggr_media]-(md:media) return ab,r,rvw,m,md;

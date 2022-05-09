@@ -80,4 +80,30 @@ public class Album {
             }
         }
     }
+
+    public String getCypherInsert() {
+        String formatString = "[";
+        int idx = 0;
+        for (String curFormat : formats) {
+            if (idx > 0) formatString += ", ";
+            formatString += "\"" + curFormat + "\"";
+            idx++;
+        }
+        formatString += "]";
+
+        String genreString = "[";
+        idx = 0;
+        for (String curGenre : genres) {
+            if (idx > 0) genreString += ", ";
+            genreString += "\"" + curGenre + "\"";
+            idx++;
+        }
+        genreString += "]";
+
+        String result = "CREATE (ab:album {id: \"" + this.id + "\", name: \"" + this.name + "\", popularity: \"" + this.popularity + "\", releaseYear: " + this.releaseYear + ", formats: " + formatString + ", genres: " + genreString + "})";
+        if (review != null) {
+            result += "-[:aggr_reviews]->" + review.getCypherDef();
+        }
+        return result;
+    }
 }

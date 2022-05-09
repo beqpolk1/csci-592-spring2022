@@ -13,6 +13,7 @@ public class DataConverter {
 
         try {
             PostgresConverter.ConvertDatabase(mongoSongsDB);
+            Neo4jConverter.ConvertDatabase(mongoSongsDB);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
