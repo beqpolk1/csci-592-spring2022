@@ -1,0 +1,1 @@
+docker run -it -v /mnt/c/Users/Ben/Repositories/csci-592-spring2022/project/DataConverter/out/artifacts/DataConverter_jar:/mnt csci-592/env java -cp DataConverter.jar DataConverter
