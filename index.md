@@ -42,3 +42,4 @@ I will post content to the site during each week of the course. For the first 12
 * [Description of Docker setup and files](/project/updates/using_docker.md)
 * [Description of changes made to MongoSongs model from the ModuelUM Group's NoSQL Data Engineering repository](/project/updates/changes_to_model.md)
 * [Description of database schemas used for implentation and testing of the project](/project/updates/schemas.md)
+* [Steps for running the testing environment](/project/updates/test_env.md)
