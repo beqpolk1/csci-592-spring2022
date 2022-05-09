@@ -63,8 +63,12 @@ public class Track {
     }
 
     public void addTrackArtists(ArrayList<SimpleReference> trackArtist) {
+        ArrayList<String> addedArtists = new ArrayList<>();
         for (String curArtist : artistList) {
-            trackArtist.add(new SimpleReference(this.id, curArtist));
+            if (!addedArtists.contains(curArtist)) {
+                trackArtist.add(new SimpleReference(this.id, curArtist));
+                addedArtists.add(curArtist);
+            }
         }
     }
 }

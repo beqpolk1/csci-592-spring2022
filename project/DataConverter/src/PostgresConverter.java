@@ -13,6 +13,9 @@ public class PostgresConverter {
         String insertAlbumGenreSql = "INSERT INTO album_genre (album_fk, genre) VALUES (?, ?)";
         String insertAlbumFormatSql =  "INSERT INTO album_format (album_fk, format) VALUES(?, ?)";
         String insertReview = "INSERT INTO review (album_fk, journalist, rank, stars, medium_name, medium_type, medium_url) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String insertTrackArtist = "INSERT INTO track_artist(track_fk, artist_fk) VALUES (?, ?)";
+        String insertArtistAlbum = "INSERT INTO artist_album(artist_fk, album_fk) VALUES (?, ?)";
+        String insertAlbumTrack = "INSERT INTO album_track(album_fk, track_fk, track_number) VALUES (?, ?, ?)";
 
         System.out.println(System.lineSeparator() + "------CONVERTING TO POSTGRES------");
 
@@ -112,6 +115,55 @@ public class PostgresConverter {
                 int totalRecords = countResult.getInt("cnt");
                 System.out.println("* Processed " + cnt + " album documents, found " + totalRecords + " in corresponding table");
             }
+        }
+
+        System.out.println(System.lineSeparator() + "____Inserting entity references____");
+
+        PreparedStatement referenceInsert = connection.prepareStatement(insertTrackArtist);
+        fillSimpleReferenceInsert(referenceInsert, trackArtist);
+        referenceInsert.executeBatch();
+
+        Statement select = connection.createStatement();
+        ResultSet countResult = select.executeQuery("SELECT COUNT(*) cnt FROM track_artist");
+        countResult.next();
+        int totalRecords = countResult.getInt("cnt");
+        System.out.println("* Should have inserted " + trackArtist.size() + " track -> artist references, found " + totalRecords + " in corresponding table");
+
+        referenceInsert = connection.prepareStatement(insertArtistAlbum);
+        fillSimpleReferenceInsert(referenceInsert, artistAlbum);
+        referenceInsert.executeBatch();
+
+        connection.createStatement();
+        countResult = select.executeQuery("SELECT COUNT(*) cnt FROM artist_album");
+        countResult.next();
+        totalRecords = countResult.getInt("cnt");
+        System.out.println("* Should have inserted " + artistAlbum.size() + " artist -> album references, found " + totalRecords + " in corresponding table");
+
+        referenceInsert = connection.prepareStatement(insertAlbumTrack);
+        fillAlbumTrackReferenceInsert(referenceInsert, albumTrack);
+        referenceInsert.executeBatch();
+
+        connection.createStatement();
+        countResult = select.executeQuery("SELECT COUNT(*) cnt FROM album_track");
+        countResult.next();
+        totalRecords = countResult.getInt("cnt");
+        System.out.println("* Should have inserted " + albumTrack.size() + " album -> track references, found " + totalRecords + " in corresponding table");
+    }
+
+    private static void fillSimpleReferenceInsert(PreparedStatement theInsert, ArrayList<SimpleReference> references) throws SQLException {
+        for (SimpleReference curReference : references) {
+            theInsert.setString(1, curReference.getIdFrom());
+            theInsert.setString(2, curReference.getIdTo());
+            theInsert.addBatch();
+        }
+    }
+
+    private static void fillAlbumTrackReferenceInsert(PreparedStatement theInsert, ArrayList<AlbumTrackReference> references) throws SQLException {
+        for (AlbumTrackReference curReference : references) {
+            theInsert.setString(1, curReference.getIdFrom());
+            theInsert.setString(2, curReference.getIdTo());
+            theInsert.setInt(3, curReference.getTrackNumber());
+            theInsert.addBatch();
         }
     }
 }

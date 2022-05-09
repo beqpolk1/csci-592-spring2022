@@ -23,8 +23,12 @@ public class Artist {
     }
 
     public void addArtistAlbums(ArrayList<SimpleReference> artistAlbum) {
+        ArrayList<String> addedAlbums = new ArrayList<>();
         for (String curAlbum : albumList) {
-            artistAlbum.add(new SimpleReference(this.id, curAlbum));
+            if (!addedAlbums.contains(curAlbum)) {
+                artistAlbum.add(new SimpleReference(this.id, curAlbum));
+                addedAlbums.add(curAlbum);
+            }
         }
     }
 }

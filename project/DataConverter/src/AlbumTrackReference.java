@@ -7,4 +7,16 @@ public class AlbumTrackReference {
         this.idTo = idTo;
         this.trackNumber = trackNumber;
     }
+
+    public String getIdFrom() {
+        return idFrom;
+    }
+
+    public String getIdTo() {
+        return idTo;
+    }
+
+    public Integer getTrackNumber() {
+        return trackNumber;
+    }
 }

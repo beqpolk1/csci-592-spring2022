@@ -24,7 +24,7 @@ public class Album {
         ArrayList<String> formatList = (ArrayList<String>) mongoDoc.get("formats");
         String[] formats = formatList.toArray(new String[0]);
 
-        ArrayList<Document> trackList = (ArrayList<Document>) mongoDoc.get("tracks");
+        this.trackList = (ArrayList<Document>) mongoDoc.get("tracks");
 
         this.id = mongoDoc.getString("_id");
         this.popularity = mongoDoc.getInteger("popularity");
@@ -70,9 +70,13 @@ public class Album {
     }
 
     public void addAlbumTracks(ArrayList<AlbumTrackReference> albumTrack){
+        ArrayList<String> addedTracks = new ArrayList<>();
         if (trackList != null && trackList.size() > 0) {
             for (Document curTrack : trackList) {
-                albumTrack.add(new AlbumTrackReference(this.id, curTrack.getString("track_id"), curTrack.getInteger("track_number")));
+                if (!addedTracks.contains(curTrack.getString("track_id"))) {
+                    albumTrack.add(new AlbumTrackReference(this.id, curTrack.getString("track_id"), curTrack.getInteger("track_number")));
+                    addedTracks.add(curTrack.getString("track_id"));
+                }
             }
         }
     }
