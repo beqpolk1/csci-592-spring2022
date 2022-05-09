@@ -33,7 +33,7 @@ public class Artist {
     }
 
     public String getCypherInsert() {
-        String result = "CREATE (at:artist {name: \"" + this.name + "\", startingYear: " + this.startingYear + "})";
+        String result = "CREATE (at:artist {id: \"" + this.id + "\", name: \"" + this.name + "\", startingYear: " + this.startingYear + "})";
         return result;
     }
 }

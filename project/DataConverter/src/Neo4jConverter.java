@@ -25,7 +25,6 @@ public class Neo4jConverter {
             int cnt = 0;
 
             for(Document curDoc : mongoDb.getCollection(curCollection).find()) {
-                if (cnt % 500 == 0) System.out.println(">>Added " + cnt + " records...");
                 cnt++;
 
                 if (curCollection.equals("track")) {
@@ -55,8 +54,39 @@ public class Neo4jConverter {
                     //System.out.println(cypherInsert);
                     session.run(cypherInsert);
                 }
+
+                if (cnt % 500 == 0) System.out.println(">>Added " + cnt + " records...");
             }
         }
+
+        System.out.println(System.lineSeparator() + "____Inserting entity references____");
+        int cnt = 0;
+
+        for (SimpleReference curTrackArtist : trackArtist) {
+            String cypherQuery = "MATCH(tr:track {id: \"" + curTrackArtist.getIdFrom() + "\"}), (ar:artist {id: \"" + curTrackArtist.getIdTo() + "\"}) CREATE(tr)-[:track_artist]->(ar)";
+            //System.out.println(cypherQuery);
+            session.run(cypherQuery);
+            cnt++;
+        }
+        System.out.println("* Inserted " + cnt + " of " + trackArtist.size() + " track -> artist references");
+
+        cnt = 0;
+        for (SimpleReference curArtistAlbum : artistAlbum) {
+            String cypherQuery = "MATCH(ar:artist {id: \"" + curArtistAlbum.getIdFrom() + "\"}), (ab:album {id: \"" + curArtistAlbum.getIdTo() + "\"}) CREATE(ar)-[:artist_album]->(ab)";
+            //System.out.println(cypherQuery);
+            session.run(cypherQuery);
+            cnt++;
+        }
+        System.out.println("* Inserted " + cnt + " of " + artistAlbum.size() + " artist -> album references");
+
+        cnt = 0;
+        for (AlbumTrackReference curAlbumTrack : albumTrack) {
+            String cypherQuery = "MATCH(ab:album {id: \"" + curAlbumTrack.getIdFrom() + "\"}), (tr:track {id: \"" + curAlbumTrack.getIdTo() + "\"}) CREATE(ab)-[:album_track {trackNumber: " + curAlbumTrack.getTrackNumber() + "}]->(tr)";
+            //System.out.println(cypherQuery);
+            session.run(cypherQuery);
+            cnt++;
+        }
+        System.out.println("* Inserted " + cnt + " of " + albumTrack.size() + " album -> track references");
 
         session.close();
         neo4jDriver.close();

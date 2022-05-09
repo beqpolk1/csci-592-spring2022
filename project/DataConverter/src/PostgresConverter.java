@@ -44,7 +44,6 @@ public class PostgresConverter {
             int cnt = 0;
 
             for(Document curDoc : mongoDb.getCollection(curCollection).find()) {
-                if (cnt % 500 == 0) System.out.println(">>Added " + cnt + " records...");
                 cnt++;
 
                 if (curCollection.equals("track")) {
@@ -92,6 +91,8 @@ public class PostgresConverter {
                         reviewInsert.execute();
                     }
                 }
+
+                if (cnt % 500 == 0) System.out.println(">>Added " + cnt + " records...");
             }
 
             if (curCollection.equals("track")) {

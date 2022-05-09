@@ -5,6 +5,10 @@ OPTIONAL MATCH (n)-[r]-()
 DELETE n, r
 
 match(n:track) OPTIONAL MATCH (n)-[r]-(o) return n,o;
+match(tr:track) OPTIONAL MATCH (tr)-[trar:track_artist]->(ar:artist) return tr,trar,ar;
+
+match(ar:artist) OPTIONAL MATCH (ar)-[arab:artist_album]->(ab:album) return ar,arab,ab;
 
 match(ab:album) OPTIONAL MATCH (ab)-[r:aggr_reviews]-(rvw:review) return ab,r,rvw;
 MATCH(ab:album)-[r:aggr_reviews]-(rvw:review) OPTIONAL MATCH (rvw)-[m:aggr_media]-(md:media) return ab,r,rvw,m,md;
+match(ab:album) OPTIONAL MATCH (ab)-[abtr:album_track]->(tr:track) WHERE abtr.trackNumber > 50 return ab,abtr,tr;
