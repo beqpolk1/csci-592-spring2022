@@ -10,7 +10,7 @@ public class Neo4jConverter {
 
         System.out.println(System.lineSeparator() + "------CONVERTING TO NEO4J------");
 
-        Driver neo4jDriver = GraphDatabase.driver("bolt://localhost:7687");
+        Driver neo4jDriver = GraphDatabase.driver("bolt://host.docker.internal:7687");
         Session session = neo4jDriver.session();
 
         System.out.println("Connection made");

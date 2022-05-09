@@ -4,7 +4,9 @@
     <root id="archive" name="DataConverter.jar">
       <element id="module-output" name="DataConverter" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/mongodb/mongo-java-driver/3.5.0/mongo-java-driver-3.5.0.jar" path-in-jar="/" />
-      <element id="library" level="project" name="postgresql-42.3.5" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/postgresql-42.3.5.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/neo4j/driver/neo4j-java-driver/4.4.4/neo4j-java-driver-4.4.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/reactivestreams/reactive-streams/1.0.3/reactive-streams-1.0.3.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>
