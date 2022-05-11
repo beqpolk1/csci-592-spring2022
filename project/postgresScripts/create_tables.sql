@@ -33,7 +33,6 @@ CREATE TABLE track_genre(
 CREATE TABLE track_artist(
     track_fk VARCHAR(32) NOT NULL,
     artist_fk VARCHAR(32) NOT NULL,
-    PRIMARY KEY(track_fk, artist_fk),
     FOREIGN KEY(track_fk) REFERENCES track(id) ON DELETE NO ACTION,
     FOREIGN KEY(artist_fk) REFERENCES artist(id) ON DELETE NO ACTION
 );
@@ -48,7 +47,6 @@ CREATE TABLE album(
 CREATE TABLE artist_album(
     artist_fk VARCHAR(32) NOT NULL,
     album_fk VARCHAR(32) NOT NULL,
-    PRIMARY KEY(artist_fk, album_fk),
     FOREIGN KEY(artist_fk) REFERENCES artist(id) ON DELETE NO ACTION,
     FOREIGN KEY(album_fk) REFERENCES album(id) ON DELETE NO ACTION
 );
@@ -57,7 +55,6 @@ CREATE TABLE album_track(
     album_fk VARCHAR(32) NOT NULL,
     track_fk VARCHAR(32) NOT NULL,
     track_number INTEGER,
-    PRIMARY KEY(album_fk, track_fk),
     FOREIGN KEY(album_fk) REFERENCES album(id) ON DELETE NO ACTION,
     FOREIGN KEY(track_fk) REFERENCES track(id) ON DELETE NO ACTION
 );

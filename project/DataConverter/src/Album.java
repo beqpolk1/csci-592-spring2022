@@ -73,13 +73,9 @@ public class Album {
     }
 
     public void addAlbumTracks(ArrayList<AlbumTrackReference> albumTrack){
-        ArrayList<String> addedTracks = new ArrayList<>();
         if (trackList != null && trackList.size() > 0) {
             for (Document curTrack : trackList) {
-                if (!addedTracks.contains(curTrack.getString("track_id"))) {
-                    albumTrack.add(new AlbumTrackReference(this.id, curTrack.getString("track_id"), curTrack.getInteger("track_number")));
-                    addedTracks.add(curTrack.getString("track_id"));
-                }
+                albumTrack.add(new AlbumTrackReference(this.id, curTrack.getString("track_id"), curTrack.getInteger("track_number")));
             }
         }
     }
