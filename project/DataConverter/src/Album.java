@@ -8,7 +8,7 @@ public class Album {
     private Integer popularity, releaseYear;
     private String id, name;
     private String[] genres, formats;
-    private Review review;
+    ArrayList<Review> reviews;
     ArrayList<Document> trackList; // = new ArrayList<>();
 
     public Album(Document mongoDoc) {
@@ -33,10 +33,13 @@ public class Album {
         this.genres = genres;
         this.formats = formats;
 
-        ArrayList<Document> reviews = (ArrayList<Document>) mongoDoc.get("reviews");
+        ArrayList<Document> mongoReviews = (ArrayList<Document>) mongoDoc.get("reviews");
+        reviews = new ArrayList<>();
 
-        if (reviews != null && reviews.size() > 0) {
-            review = new Review(reviews.get(0), this.id);
+        if (mongoReviews != null && mongoReviews.size() > 0) {
+            for (Document curReview: mongoReviews) {
+                reviews.add(new Review(curReview, this.id));
+            }
         }
     }
 
@@ -63,10 +66,10 @@ public class Album {
         }
     }
 
-    public boolean hasReview() { return review != null; }
+    public boolean hasReviews() { return reviews.size() > 0; }
 
-    public Review getReview() {
-        return review;
+    public ArrayList<Review> getReviews() {
+        return reviews;
     }
 
     public void addAlbumTracks(ArrayList<AlbumTrackReference> albumTrack){
@@ -100,9 +103,13 @@ public class Album {
         }
         genreString += "]";
 
-        String result = "CREATE (ab:album {id: \"" + this.id + "\", name: \"" + this.name + "\", popularity: \"" + this.popularity + "\", releaseYear: " + this.releaseYear + ", formats: " + formatString + ", genres: " + genreString + "})";
-        if (review != null) {
-            result += "-[:aggr_reviews]->" + review.getCypherDef();
+        String result = "CREATE (ab:album {id: \"" + this.id + "\", name: \"" + this.name + "\", popularity: " + this.popularity + ", releaseYear: " + this.releaseYear + ", formats: " + formatString + ", genres: " + genreString + "})";
+        if (hasReviews()) {
+            int index = 0;
+            for (Review curReview : reviews) {
+                result += ", (ab)-[:aggr_reviews]->" + curReview.getCypherDef(index);
+                index++;
+            }
         }
         return result;
     }

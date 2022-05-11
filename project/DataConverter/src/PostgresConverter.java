@@ -85,10 +85,12 @@ public class PostgresConverter {
                     curAlbum.fillFormatSqlInsert(formatInsert);
                     formatInsert.executeBatch();
 
-                    if (curAlbum.hasReview()) {
-                        PreparedStatement reviewInsert = connection.prepareStatement(insertReview);
-                        curAlbum.getReview().fillSqlInsert(reviewInsert);
-                        reviewInsert.execute();
+                    if (curAlbum.hasReviews()) {
+                        for (Review curReview : curAlbum.getReviews()) {
+                            PreparedStatement reviewInsert = connection.prepareStatement(insertReview);
+                            curReview.fillSqlInsert(reviewInsert);
+                            reviewInsert.execute();
+                        }
                     }
                 }
 
