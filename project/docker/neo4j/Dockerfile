@@ -1,2 +1,2 @@
-FROM neo4j:3.5
+FROM neo4j:4.4
 EXPOSE 7474
