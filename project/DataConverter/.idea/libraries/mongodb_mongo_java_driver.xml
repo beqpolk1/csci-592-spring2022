@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="mongodb.mongo.java.driver" type="repository">
-    <properties maven-id="org.mongodb:mongo-java-driver:3.5.0" />
+    <properties maven-id="org.mongodb:mongo-java-driver:3.6.0" />
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/mongodb/mongo-java-driver/3.5.0/mongo-java-driver-3.5.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/mongodb/mongo-java-driver/3.6.0/mongo-java-driver-3.6.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
