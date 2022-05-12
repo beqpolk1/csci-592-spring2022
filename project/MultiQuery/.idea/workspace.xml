@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b2a782d0-4a2c-42c5-ae9e-810798d41e25" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:\Program Files\JetBrains\IntelliJ IDEA 2020.2\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="292W3tDFj17JCcjKhpFoTIdGSme" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/postgresql-42.3.5.jar" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.32528734" />
+  </component>
+  <component name="RunManager">
+    <configuration name="TestQueryRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TestQueryRunner" />
+      <module name="MultiQuery" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TestQueryRunner" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b2a782d0-4a2c-42c5-ae9e-810798d41e25" name="Default Changelist" comment="" />
+      <created>1652311467545</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1652311467545</updated>
+      <workItem from="1652311468802" duration="25215000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1010" y="490" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1652312468523">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1010" y="490" key="#com.intellij.ide.util.TreeClassChooserDialog/3840.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1652312468523" />
+    <state x="1111" y="384" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1652361796129">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1111" y="384" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/3840.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1652361796129" />
+    <state x="1011" y="447" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1652364128727">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1011" y="447" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/3840.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1652364128727" />
+    <state x="915" y="697" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1652361798053">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="915" y="697" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/3840.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1652361798053" />
+    <state x="988" y="442" key="FileChooserDialogImpl" timestamp="1652361779225">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="988" y="442" key="FileChooserDialogImpl/3840.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1652361779225" />
+    <state width="2517" height="492" key="GridCell.Tab.0.bottom" timestamp="1652366862612">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="492" key="GridCell.Tab.0.bottom/3840.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1652366862612" />
+    <state width="2517" height="492" key="GridCell.Tab.0.center" timestamp="1652366862612">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="492" key="GridCell.Tab.0.center/3840.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1652366862612" />
+    <state width="2517" height="492" key="GridCell.Tab.0.left" timestamp="1652366862612">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="492" key="GridCell.Tab.0.left/3840.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1652366862612" />
+    <state width="2517" height="492" key="GridCell.Tab.0.right" timestamp="1652366862612">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="492" key="GridCell.Tab.0.right/3840.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1652366862612" />
+    <state width="2517" height="492" key="GridCell.Tab.1.bottom" timestamp="1652366860950">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="492" key="GridCell.Tab.1.bottom/3840.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1652366860950" />
+    <state width="2517" height="492" key="GridCell.Tab.1.center" timestamp="1652366860950">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="492" key="GridCell.Tab.1.center/3840.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1652366860950" />
+    <state width="2517" height="492" key="GridCell.Tab.1.left" timestamp="1652366860950">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="492" key="GridCell.Tab.1.left/3840.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1652366860950" />
+    <state width="2517" height="492" key="GridCell.Tab.1.right" timestamp="1652366860950">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="492" key="GridCell.Tab.1.right/3840.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1652366860950" />
+    <state x="761" y="275" key="SettingsEditor" timestamp="1652361809771">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="761" y="275" key="SettingsEditor/3840.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1652361809771" />
+    <state width="1287" height="707" key="XDebugger.FullValuePopup" timestamp="1652365362139">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1287" height="707" key="XDebugger.FullValuePopup/3840.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1652365362139" />
+    <state x="1015" y="592" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1652361795039">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1015" y="592" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/3840.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1652361795039" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="org.neo4j.driver.internal.summary.InternalPlan" memberName="arguments" />
+        <PinnedItemInfo parentTag="java.util.LinkedHashMap$Entry" memberName="key" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+</project>

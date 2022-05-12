@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MultiQuery:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MultiQuery_jar</output-path>
+    <root id="archive" name="MultiQuery.jar">
+      <element id="module-output" name="MultiQuery" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/postgresql-42.3.5.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/neo4j/driver/neo4j-java-driver/4.4.4/neo4j-java-driver-4.4.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/reactivestreams/reactive-streams/1.0.3/reactive-streams-1.0.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/mongodb/mongodb-driver-sync/3.7.0/mongodb-driver-sync-3.7.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/mongodb/bson/3.7.0/bson-3.7.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/mongodb/mongodb-driver-core/3.7.0/mongodb-driver-core-3.7.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.8.1/gson-2.8.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
