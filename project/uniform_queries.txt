@@ -1,3 +1,5 @@
+-----POSTGRESQL QUERIES-----
+
 SELECT
 track.name, album_track.track_number,
 album.name, album.release_year, album.popularity,
@@ -40,6 +42,7 @@ ORDER BY album.name, album_track.track_number;
 
 
 
+-----NEO4J QUERIES-----
 
 MATCH(ab:album)-[abtr:album_track]-(tr:track)
 OPTIONAL MATCH (ab)-[:aggr_reviews]-(rv:review)
@@ -54,7 +57,7 @@ WITH ab, abtr, tr, rv
 WHERE (ab.popularity > 60 AND rv.stars IS NULL) OR rv.stars > 70
 RETURN COUNT(*);
 
-PROFILE
+EXPLAIN
 MATCH(ab:album)-[abtr:album_track]-(tr:track)
 OPTIONAL MATCH (ab)-[:aggr_reviews]-(rv:review)
 WITH ab, abtr, tr, rv
@@ -64,7 +67,7 @@ ORDER BY ab.name, abtr.trackNumber;
 
 
 
-
+-----MONGODB QUERIES-----
 
 db.album.aggregate([
     { $unwind: { path: "$reviews", preserveNullAndEmptyArrays: true } },
@@ -99,3 +102,15 @@ db.album.explain("executionStats").aggregate([
     { $project: { _id: 0, name: 1, releaseYear: 1, popularity: 1, "journalist": 1, "stars": 1, "track_name": "$track_doc.name", "track_number": 1 } },
     { $sort: { name: 1, track_number: 1 } }
 ])
+
+
+
+-----CREATTING AND DELETEING INDICES FOR NEO4J, MONGO-----
+
+CREATE INDEX idx_artist_startingYear
+FOR (n:artist)
+ON (n.startingYear);
+DROP INDEX idx_artist_startingYear;
+
+db.artist.createIndex( { startingYear: 1 } )
+db.artist.dropIndex( { startingYear: 1 } )

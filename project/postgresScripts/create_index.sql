@@ -1,0 +1,1 @@
+CREATE INDEX artist_starting_year_idx ON artist (starting_year);

@@ -21,7 +21,6 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
@@ -47,7 +46,20 @@ public class TestQueryRunner {
         Connection pgConnection = DriverManager.getConnection("jdbc:postgresql://host.docker.internal/mongosongs", "postgres", "password");
         System.out.println("Connection made");
 
+        if (args.length == 1) {
+            int querySet = Integer.parseInt(args[0]);
 
+            if (querySet == 1) runQuerySet1(mongoClient, neo4jSession, pgConnection);
+            else if (querySet == 2) runQuerySet2(mongoClient, neo4jSession, pgConnection);
+            else System.out.println("Invalid arguments to invocation of main! Need to supply '1' or '2'");
+        }
+        else {
+            System.out.println("Invalid arguments to invocation of main! Need to supply '1' or '2'");
+        }
+    }
+
+    private static void runQuerySet1(MongoClient mongoClient, Session neo4jSession, Connection pgConnection) throws SQLException {
+        System.out.println(System.lineSeparator() + "******QUERY SET 1******");
         System.out.println(System.lineSeparator() + "______MONGO______");
 
         String aggrCount = "pipeline: [\n" +
@@ -168,40 +180,136 @@ public class TestQueryRunner {
         }
     }
 
+    private static void runQuerySet2(MongoClient mongoClient, Session neo4jSession, Connection pgConnection) throws SQLException {
+        System.out.println(System.lineSeparator() + "******QUERY SET 2******");
+
+        System.out.println(System.lineSeparator() + "______MONGO______");
+
+        String aggrCount = "pipeline: [\n" +
+                "    { $match: { \"startingYear\": { $lt: 10 } } },\n" +
+                "    { $count: \"total_docs\" }" +
+                "]";
+
+        String aggrCommand = "{aggregate: \"artist\", " + aggrCount + ", cursor: {} }";
+        Document aggrDoc = Document.parse(aggrCommand);
+
+        //System.out.println(explainCommand.toJson());
+        Document count = mongoClient.getDatabase("mongoSongs").runCommand(aggrDoc);
+        System.out.println("Total records from query: " + count.toJson());
+
+        String filterOnly = "filter: { startingYear: { $lt: 10 } }";
+
+        String findCommand = "{find: \"artist\", " + filterOnly + " }";
+        Document findDoc = Document.parse(findCommand);
+
+        Document explainCommand = new Document();
+        explainCommand.put("explain", findDoc);
+        explainCommand.put("verbosity", "executionStats");
+
+        //System.out.println(explainCommand.toJson());
+        Document explain = mongoClient.getDatabase("mongoSongs").runCommand(explainCommand);
+        //System.out.println("Execution plan: " + explain.toJson());
+        extractMongoPlan(explain);
+
+
+        System.out.println(System.lineSeparator() + "______NEO4J______");
+
+        String neoQueryCount = "MATCH(ar:artist) WHERE ar.startingYear < 10 RETURN COUNT(*);";
+
+        Result neo4jResult = neo4jSession.run(neoQueryCount);
+        System.out.println("Total records from query: " + neo4jResult.next().toString());
+
+        String neoQueryWithExplain = "EXPLAIN MATCH(ar:artist) WHERE ar.startingYear < 10 RETURN ar.id, ar.name, ar.startingYear ORDER BY ar.startingYear, ar.name;";
+
+        neo4jResult = neo4jSession.run(neoQueryWithExplain);
+        ResultSummary neo4jSummary = neo4jResult.consume();
+        Plan neo4jPlan = neo4jSummary.plan();
+        //System.out.println("Execution plan: " + neo4jPlan.toString());
+        extractNeo4jPlan(neo4jPlan);
+
+
+        System.out.println(System.lineSeparator() + "______POSTGRES______");
+
+        String sqlQueryCount = "SELECT COUNT(*) cnt FROM (\n" +
+                "SELECT *\n" +
+                "FROM artist\n" +
+                "WHERE starting_year < 10\n" +
+                ") AS sub;";
+
+        PreparedStatement pgQuery = pgConnection.prepareStatement(sqlQueryCount);
+        ResultSet countResults = pgQuery.executeQuery();
+        countResults.next();
+        System.out.println("Total records from query: " + countResults.getString("cnt"));
+
+        String sqlQueryWithExplain = "EXPLAIN (ANALYZE true, FORMAT xml) SELECT *\n" +
+                "FROM artist\n" +
+                "WHERE starting_year < 10\n" +
+                "ORDER BY artist.starting_year, artist.name;";
+
+        pgQuery = pgConnection.prepareStatement(sqlQueryWithExplain);
+        ResultSet planResults = pgQuery.executeQuery();
+        planResults.next();
+        //System.out.println("Execution plan: ");
+        //System.out.println(planResults.getString(1));
+
+        try {
+            DocumentBuilder xmlBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+            org.w3c.dom.Document xmlPlan = xmlBuilder.parse(new InputSource(new StringReader(planResults.getString(1))));
+            extractPostgresPlan(xmlPlan);
+        } catch (SAXException | IOException | ParserConfigurationException e) {
+            e.printStackTrace();
+        }
+    }
+
     private static void extractMongoPlan(Document plan) {
         JsonObject planJson = new JsonParser().parse(plan.toJson()).getAsJsonObject();
 
-        JsonArray execStages = planJson.get("stages").getAsJsonArray();
         JsonObject returnStats = new JsonObject();
-
         returnStats.addProperty("numberReturned", 0);
         returnStats.addProperty("totalExamined", 0);
         returnStats.addProperty("executionTime", 0);
         returnStats.addProperty("works", 0);
         returnStats.addProperty("needTime", 0);
 
-        for (Iterator<JsonElement> it = execStages.iterator(); it.hasNext(); ) {
-            JsonObject curStage = it.next().getAsJsonObject();
+        if (planJson.has("stages")) {
+            for (Iterator<JsonElement> it = planJson.get("stages").getAsJsonArray().iterator(); it.hasNext(); ) {
+                JsonObject curStage = it.next().getAsJsonObject();
 
-            for (String curKey : curStage.keySet()) {
-                JsonObject obj = curStage.get(curKey).getAsJsonObject();
+                for (String curKey : curStage.keySet()) {
+                    JsonObject obj = curStage.get(curKey).getAsJsonObject();
 
-                if (obj.has("executionStats")) {
-                    JsonObject executionStats = obj.get("executionStats").getAsJsonObject();
+                    if (obj.has("executionStats")) {
+                        JsonObject executionStats = obj.get("executionStats").getAsJsonObject();
 
-                    int numberReturned = executionStats.get("nReturned").getAsInt();
-                    int totalExamined = executionStats.get("totalDocsExamined").getAsInt();
-                    int executionTime = executionStats.get("executionStages").getAsJsonObject().get("executionTimeMillisEstimate").getAsInt();
-                    int works = executionStats.get("executionStages").getAsJsonObject().get("works").getAsInt();
-                    int needTime = executionStats.get("executionStages").getAsJsonObject().get("needTime").getAsInt();
+                        int numberReturned = executionStats.get("nReturned").getAsInt();
+                        int totalExamined = executionStats.get("totalDocsExamined").getAsInt();
+                        int executionTime = executionStats.get("executionStages").getAsJsonObject().get("executionTimeMillisEstimate").getAsInt();
+                        int works = executionStats.get("executionStages").getAsJsonObject().get("works").getAsInt();
+                        int needTime = executionStats.get("executionStages").getAsJsonObject().get("needTime").getAsInt();
 
-                    returnStats.addProperty("numberReturned", returnStats.get("numberReturned").getAsInt() + numberReturned);
-                    returnStats.addProperty("totalExamined", returnStats.get("totalExamined").getAsInt() + totalExamined);
-                    returnStats.addProperty("executionTime", returnStats.get("executionTime").getAsInt() + executionTime);
-                    returnStats.addProperty("works", returnStats.get("works").getAsInt() + works);
-                    returnStats.addProperty("needTime", returnStats.get("needTime").getAsInt() + needTime);
+                        returnStats.addProperty("numberReturned", returnStats.get("numberReturned").getAsInt() + numberReturned);
+                        returnStats.addProperty("totalExamined", returnStats.get("totalExamined").getAsInt() + totalExamined);
+                        returnStats.addProperty("executionTime", returnStats.get("executionTime").getAsInt() + executionTime);
+                        returnStats.addProperty("works", returnStats.get("works").getAsInt() + works);
+                        returnStats.addProperty("needTime", returnStats.get("needTime").getAsInt() + needTime);
+                    }
                 }
             }
+        }
+        else {
+            JsonObject executionStats = planJson.get("executionStats").getAsJsonObject();
+
+            int numberReturned = executionStats.get("nReturned").getAsInt();
+            int totalExamined = executionStats.get("totalDocsExamined").getAsInt();
+            int executionTime = executionStats.get("executionStages").getAsJsonObject().get("executionTimeMillisEstimate").getAsInt();
+            int works = executionStats.get("executionStages").getAsJsonObject().get("works").getAsInt();
+            int needTime = executionStats.get("executionStages").getAsJsonObject().get("needTime").getAsInt();
+
+            returnStats.addProperty("numberReturned", returnStats.get("numberReturned").getAsInt() + numberReturned);
+            returnStats.addProperty("totalExamined", returnStats.get("totalExamined").getAsInt() + totalExamined);
+            returnStats.addProperty("executionTime", returnStats.get("executionTime").getAsInt() + executionTime);
+            returnStats.addProperty("works", returnStats.get("works").getAsInt() + works);
+            returnStats.addProperty("needTime", returnStats.get("needTime").getAsInt() + needTime);
         }
 
         System.out.println("Relevant statistics: " + returnStats.toString());
