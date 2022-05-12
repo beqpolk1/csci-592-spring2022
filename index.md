@@ -27,14 +27,13 @@ I will post content to the site during each week of the course. For the first 12
 
 ### Project Materials
 
-#### Proposal and Preliminary Material
+#### Proposal Preliminary Materials
 
 * [Brainstorming Document](/project/proposal/brainstorming.md)
 * [Proposal sketches](/project/proposal/proposals_rough.md)
+* [Research on Testing Approaches](/project/testing_methods.md)
 
 #### [**Project Proposal Document**](/project/proposal/polk_csci-592_project_proposal.pdf)
-
-#### [**Research on Testing Approaches**](/project/testing_methods.md)
 
 #### **Updates**
 
@@ -43,3 +42,5 @@ I will post content to the site during each week of the course. For the first 12
 * [Description of changes made to MongoSongs model from the ModuelUM Group's NoSQL Data Engineering repository](/project/updates/changes_to_model.md)
 * [Description of database schemas used for implentation and testing of the project](/project/updates/schemas.md)
 * [Steps for running the testing environment](/project/updates/test_env.md)
+
+#### [**Project Conclusion**](/project/conclusion.md)
