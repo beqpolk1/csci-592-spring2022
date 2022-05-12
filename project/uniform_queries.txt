@@ -1,0 +1,101 @@
+SELECT
+track.name, album_track.track_number,
+album.name, album.release_year, album.popularity,
+review.journalist, review.stars
+FROM album
+INNER JOIN album_track ON album_track.album_fk = album.id
+INNER JOIN track ON track.id = album_track.track_fk
+LEFT JOIN review ON review.album_fk = album.id
+WHERE
+review.stars > 70
+OR (review.stars IS NULL AND album.popularity > 60)
+ORDER BY album.name, album_track.track_number;
+
+SELECT COUNT(*) FROM (
+SELECT
+track.name, album_track.track_number,
+album.name, album.release_year, album.popularity,
+review.journalist, review.stars
+FROM album
+INNER JOIN album_track ON album_track.album_fk = album.id
+INNER JOIN track ON track.id = album_track.track_fk
+LEFT JOIN review ON review.album_fk = album.id
+WHERE
+review.stars > 70
+OR (review.stars IS NULL AND album.popularity > 60)
+) AS sub;
+
+EXPLAIN (ANALYZE true, FORMAT xml) SELECT
+track.name, album_track.track_number,
+album.name, album.release_year, album.popularity,
+review.journalist, review.stars
+FROM album
+INNER JOIN album_track ON album_track.album_fk = album.id
+INNER JOIN track ON track.id = album_track.track_fk
+LEFT JOIN review ON review.album_fk = album.id
+WHERE
+review.stars > 70
+OR (review.stars IS NULL AND album.popularity > 60)
+ORDER BY album.name, album_track.track_number;
+
+
+
+
+MATCH(ab:album)-[abtr:album_track]-(tr:track)
+OPTIONAL MATCH (ab)-[:aggr_reviews]-(rv:review)
+WITH ab, abtr, tr, rv
+WHERE (ab.popularity > 60 AND rv.stars IS NULL) OR rv.stars > 70
+RETURN tr.name, abtr.trackNumber, ab.name, ab.releaseYear, ab.popularity, rv.journalist, rv.stars
+ORDER BY ab.name, abtr.trackNumber;
+
+MATCH(ab:album)-[abtr:album_track]-(tr:track)
+OPTIONAL MATCH (ab)-[:aggr_reviews]-(rv:review)
+WITH ab, abtr, tr, rv
+WHERE (ab.popularity > 60 AND rv.stars IS NULL) OR rv.stars > 70
+RETURN COUNT(*);
+
+PROFILE
+MATCH(ab:album)-[abtr:album_track]-(tr:track)
+OPTIONAL MATCH (ab)-[:aggr_reviews]-(rv:review)
+WITH ab, abtr, tr, rv
+WHERE (ab.popularity > 60 AND rv.stars IS NULL) OR rv.stars > 70
+RETURN tr.name, abtr.trackNumber, ab.name, ab.releaseYear, ab.popularity, rv.journalist, rv.stars
+ORDER BY ab.name, abtr.trackNumber;
+
+
+
+
+
+db.album.aggregate([
+    { $unwind: { path: "$reviews", preserveNullAndEmptyArrays: true } },
+    { $unwind: { path: "$tracks", preserveNullAndEmptyArrays: false } },
+    { $match: { $or: [ {$and: [{"popularity": { $gt: 60 }}, {reviews: {$exists: false}}]}, {"reviews.stars": { $gt: 70 }}] } },
+    { $project: { _id: 0, name: 1, releaseYear: 1, popularity: 1, "journalist": "$reviews.journalist", "stars": "$reviews.stars", "track_id": "$tracks.track_id", "track_number": "$tracks.track_number" } },
+    { $lookup: { from: "track", localField: "track_id", foreignField: "_id", as: "track_doc" } },
+    { $unwind: "$track_doc" },
+    { $project: { _id: 0, name: 1, releaseYear: 1, popularity: 1, "journalist": 1, "stars": 1, "track_name": "$track_doc.name", "track_number": 1 } },
+    { $sort: { name: 1, track_number: 1 } }
+]).pretty()
+
+db.album.aggregate([
+    { $unwind: { path: "$reviews", preserveNullAndEmptyArrays: true } },
+    { $unwind: { path: "$tracks", preserveNullAndEmptyArrays: false } },
+    { $match: { $or: [ {$and: [{"popularity": { $gt: 60 }}, {reviews: {$exists: false}}]}, {"reviews.stars": { $gt: 70 }}] } },
+    { $project: { _id: 0, name: 1, releaseYear: 1, popularity: 1, "journalist": "$reviews.journalist", "stars": "$reviews.stars", "track_id": "$tracks.track_id", "track_number": "$tracks.track_number" } },
+    { $lookup: { from: "track", localField: "track_id", foreignField: "_id", as: "track_doc" } },
+    { $unwind: "$track_doc" },
+    { $project: { _id: 0, name: 1, releaseYear: 1, popularity: 1, "journalist": 1, "stars": 1, "track_name": "$track_doc.name", "track_number": 1 } },
+    { $sort: { name: 1, track_number: 1 } },
+    { $count: "total_docs" }
+]).pretty()
+
+db.album.explain("executionStats").aggregate([
+    { $unwind: { path: "$reviews", preserveNullAndEmptyArrays: true } },
+    { $unwind: { path: "$tracks", preserveNullAndEmptyArrays: false } },
+    { $match: { $or: [ {$and: [{"popularity": { $gt: 60 }}, {reviews: {$exists: false}}]}, {"reviews.stars": { $gt: 70 }}] } },
+    { $project: { _id: 0, name: 1, releaseYear: 1, popularity: 1, "journalist": "$reviews.journalist", "stars": "$reviews.stars", "track_id": "$tracks.track_id", "track_number": "$tracks.track_number" } },
+    { $lookup: { from: "track", localField: "track_id", foreignField: "_id", as: "track_doc" } },
+    { $unwind: "$track_doc" },
+    { $project: { _id: 0, name: 1, releaseYear: 1, popularity: 1, "journalist": 1, "stars": 1, "track_name": "$track_doc.name", "track_number": 1 } },
+    { $sort: { name: 1, track_number: 1 } }
+])
