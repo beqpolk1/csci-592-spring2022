@@ -32,6 +32,12 @@ public class TestQueryRunner {
         MongoDatabase mongoSongsDB = mongoClient.getDatabase("mongoSongs");
         System.out.println("Connection made");
 
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         System.out.println(System.lineSeparator() + "======CONNECTING TO NEO4J======");
         Driver neo4jDriver = GraphDatabase.driver("bolt://host.docker.internal:7687");
         Session neo4jSession = neo4jDriver.session();
@@ -40,6 +46,9 @@ public class TestQueryRunner {
         System.out.println(System.lineSeparator() + "======CONNECTING TO POSTGRES======");
         Connection pgConnection = DriverManager.getConnection("jdbc:postgresql://host.docker.internal/mongosongs", "postgres", "password");
         System.out.println("Connection made");
+
+
+        System.out.println(System.lineSeparator() + "______MONGO______");
 
         String aggrCount = "pipeline: [\n" +
                 "    { $unwind: { path: \"$reviews\", preserveNullAndEmptyArrays: true } },\n" +
@@ -84,7 +93,7 @@ public class TestQueryRunner {
         extractMongoPlan(explain);
 
 
-        System.out.println(System.lineSeparator());
+        System.out.println(System.lineSeparator() + "______NEO4J______");
 
         String neoQueryCount = "MATCH(ab:album)-[abtr:album_track]-(tr:track)\n" +
                 "OPTIONAL MATCH (ab)-[:aggr_reviews]-(rv:review)\n" +
@@ -110,7 +119,7 @@ public class TestQueryRunner {
         extractNeo4jPlan(neo4jPlan);
 
 
-        System.out.println(System.lineSeparator());
+        System.out.println(System.lineSeparator() + "______POSTGRES______");
 
         String sqlQueryCount = "SELECT COUNT(*) cnt FROM (\n" +
                 "SELECT\n" +
